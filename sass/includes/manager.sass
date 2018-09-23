@@ -1,0 +1,65 @@
+
+.view
+
+	margin: 0 auto
+	text-align: center
+
+	label
+		display: inline-block
+		padding: 0.75rem 1rem
+		transition: all 200ms ease
+		background-color: #eee
+		background-image: linear-gradient( to bottom, rgba(0,0,0,0), rgba(0,0,0,0.15))
+		margin: 0
+		font-weight: 500
+
+	input[type="radio"]
+	    position: absolute !important
+	    height: 1px
+	    width: 1px
+	    overflow: hidden
+	    clip: rect(1px 1px 1px 1px)
+	    clip: rect(1px, 1px, 1px, 1px)
+	    margin: 0
+
+	fieldset
+		display: inline-block
+		margin: 0
+
+	input:checked + label
+		background-color: $red
+		color: #fff
+
+
+	fieldset:first-child label
+		border-radius: 5px 0 0 5px
+
+	fieldset:last-child label
+		border-radius:  0 5px 5px 0
+
+.views
+	overflow: hidden
+	display: flex
+	width: 200%
+	padding: 0
+	transition: margin 250ms ease
+
+	.view-team
+		opacity: 0
+
+	&.view-team
+		margin-left: -100%
+		.view-team
+			opacity: 1
+		.view-goals
+			opacity: 0
+
+.view-panel
+	width: 100%
+	transition: opacity 200ms ease
+
+
+.manager main
+	overflow: hidden
+
+

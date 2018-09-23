@@ -7,6 +7,7 @@
 	max-width: 25rem
 	font-size: 1.2rem
 	margin-bottom: 2.5rem
+	display: block
 
 	h2, h3, .numbers
 		font-size: 1.2rem
@@ -19,6 +20,10 @@
 		color: $grey50
 		left: 0
 		font-family: 'Roboto Condensed', sans-serif
+		transition: color 200ms ease
+
+	&:hover h2
+		color: #000
 
 	h3
 		color: $grey50
@@ -35,6 +40,7 @@
 
 	.goal
 		font-weight: 700
+		display: inline
 
 	.divider
 		color: $grey20
@@ -52,6 +58,14 @@
 
 	progress[value]::-webkit-progress-value
 		background: $red
+
+
+	.edit
+		border-bottom: 1px solid #eee
+		padding: 0.5rem
+		input[type="number"]
+			margin-left: 0.25rem
+			width: 5rem
 
 
 @media (min-width: 20rem)

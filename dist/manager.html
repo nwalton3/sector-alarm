@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Sector Alarm MyWay</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- <link rel="manifest" href="site.webmanifest"> -->
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="manager">
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header>
+    <h2 class="apptitle">Sector Alarm MyWay</h2>
+  </header>
+
+  <main>
+    <section>
+      <header>
+        <h1>September Team Progress</h1>
+        <p class="remaining">10 work days remaining</p>
+      </header>
+
+      <form class="view">
+        <fieldset>
+          <input type="radio" name="view-option" id="view-option-goals" checked="checked" >
+          <label for="view-option-goals">Goals View</label>
+        </fieldset>
+        <fieldset>
+          <input type="radio" name="view-option" id="view-option-team" >
+          <label for="view-option-team">Team View</label>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="views" class="views">
+
+      <section class="view-panel" id="view-goals">
+
+        <h2>Doors</h2>
+
+        <a class="goal">
+          <h2>Adam</h2>
+          <p class="numbers">
+            <span class="complete">53</span>
+            <span class="divider">/</span>
+            <span class="goal">100</span></p>
+          <progress value="53" max="100"></progress>
+        </a>
+
+        <a class="goal">
+          <h2>Horatio</h2>
+          <p class="numbers">
+            <span class="complete">53</span>
+            <span class="divider">/</span>
+            <span class="goal">100</span></p>
+          <progress value="53" max="100"></progress>
+        </a>
+
+        <a class="goal">
+          <h2>Nate</h2>
+          <p class="numbers">
+            <span class="complete">53</span>
+            <span class="divider">/</span>
+            <span class="goal">100</span></p>
+          <progress value="53" max="100"></progress>
+        </a>
+
+      </section>
+
+      <section class="view-panel" id="view-team">
+
+        <h2>Adam</h2>
+
+        <a class="goal" id="goal-doors">
+          <h2>Doors</h2>
+          <p class="numbers">
+            <span class="complete">278</span>
+            <span class="divider">/</span>
+            <span class="goal">500</span></p>
+          <progress value="278" max="500"></progress>
+
+        </a>
+
+        <a class="goal">
+          <h2>Bookings</h2>
+          <p class="numbers">
+            <span class="complete">53</span>
+            <span class="divider">/</span>
+            <span class="goal">100</span></p>
+          <progress value="53" max="100"></progress>
+        </a>
+
+        <a class="goal">
+          <h2>Meetings</h2>
+          <p class="numbers">
+            <span class="complete">24</span>
+            <span class="divider">/</span>
+            <span class="goal">50</span></p>
+          <progress value="24" max="50"></progress>
+        </a>
+
+        <a class="goal">
+          <h2>Sales</h2>
+          <p class="numbers">
+            <span class="complete">22</span>
+            <span class="divider">/</span>
+            <span class="goal">40</span></p>
+          <progress value="22" max="40"></progress>
+        </a>
+
+      </section>
+
+    </section>
+
+
+  </main>
+
+  <script>
+
+    var radio_goals = document.getElementById("view-option-goals");
+    var radio_team = document.getElementById("view-option-team");
+
+    var views = document.getElementById("views");
+
+    listenForChange( radio_goals );
+    listenForChange( radio_team );
+
+    function listenForChange( radio ) {
+      radio.addEventListener('change', changePanel );
+    }
+
+    function changePanel() {
+      if( radio_team.checked ) {
+        views.className = "views view-team";
+      } else {
+        views.className = "views";
+      }
+    }
+
+  </script>
+
+<!--   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script> -->
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!--   <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+</body>
+
+</html>
