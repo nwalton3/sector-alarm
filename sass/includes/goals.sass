@@ -10,10 +10,11 @@
 	display: block
 
 	.goal-info
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
+		@media ( min-width: 20rem )
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
 
 	h2, h3, .numbers
 		font-size: 1.2rem
@@ -44,7 +45,7 @@
 			font-size: 1.2rem
 			font-family: 'Roboto', sans-serif
 
-	.goal
+	.target
 		font-weight: 700
 		display: inline
 
@@ -58,7 +59,8 @@
 
 		width: 100%
 		height: 3px
-		margin: 2rem 0 0
+		@media(min-width:20rem)
+			margin: 2rem 0 0
 
 	progress[value]::-webkit-progress-bar
 		background-color: $grey10
@@ -74,10 +76,13 @@
 			margin-left: 0.25rem
 			width: 5rem
 
+	&.editor-open .edit
+		max-height: 7rem
+
 
 @media (min-width: 20rem)
 	.goal
-		padding-top: 1rem
+		padding-top: 2.5rem
 
 		h2, h3, .numbers
 			position: absolute
