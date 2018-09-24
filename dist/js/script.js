@@ -41,7 +41,7 @@ var goals = (function(){
 
 	function addEditor( el, name, val ) {
 		var editor = `            <fieldset>
-              <label for="edit-goal-${name}">Monthly goal</label>
+              <label for="edit-goal-${name}">Kuukauden tavoite</label>
               <input type="number" id="edit-goal-${name}" name="edit-goal-${name}" value=${val} />
             </fieldset>
             <input class="submit" type="submit" value="Save" >`;
