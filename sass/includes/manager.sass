@@ -3,6 +3,11 @@
 
 	margin: 0 auto
 	text-align: center
+	display: flex
+	justify-content: center
+
+	fieldset
+		margin: 0
 
 	label
 		display: inline-block
@@ -22,10 +27,6 @@
 	    clip: rect(1px, 1px, 1px, 1px)
 	    margin: 0
 
-	fieldset
-		display: inline-block
-		margin: 0
-
 	input:checked + label
 		background-color: $red
 		color: #fff
@@ -37,6 +38,24 @@
 	fieldset:last-child label
 		border-radius:  0 5px 5px 0
 
+
+
+.view-panel
+	width: 100%
+	transition: opacity 200ms ease
+	overflow: hidden
+
+	.goal
+		transition: all 200ms ease
+		margin-bottom: 1rem
+		progress[value]
+			margin: 0
+		@media( min-width: 20rem )
+			padding-top: 0.5rem
+			.numbers
+				right: 0
+				margin-right: 0
+
 .views
 	overflow: hidden
 	display: flex
@@ -44,19 +63,23 @@
 	padding: 0
 	transition: margin 250ms ease
 
-	.view-team
+	.view-team-panel
 		opacity: 0
+		.goal
+			max-height: 0
 
 	&.view-team
 		margin-left: -100%
-		.view-team
+		.view-team-panel
 			opacity: 1
-		.view-goals
+			.goal
+				max-height: 6rem
+				@media( min-width: 20rem)
+					max-height: 2rem
+		.view-goals-panel
 			opacity: 0
-
-.view-panel
-	width: 100%
-	transition: opacity 200ms ease
+			.goal
+				max-height: 0
 
 
 .manager main
