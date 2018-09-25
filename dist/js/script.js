@@ -16,6 +16,7 @@ var goals = (function(){
 
 	    var goalsData = goalsJSON || defaults;
 
+	    var editButton = document.getElementById('edit-goals');
 	    var saveButton = document.getElementById('set-goals');
 	    var skipButton = document.getElementById('skip-goals');
 
@@ -26,6 +27,10 @@ var goals = (function(){
 
 			updateTarget( goal, target );
 
+		});
+
+		editButton.addEventListener("click", function(e) {
+			showEditor();
 		});
 
 		saveButton.addEventListener("click", function(e) {
