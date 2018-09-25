@@ -2,32 +2,19 @@
 var goals = (function(){
 
 	var doc = document;
-	var defaults = { 'doors': 500, 'bookings': 100, 'meetings': 50, 'sales': 40 };
 
 	// Init
 	function init() {
 	    // do something
 
-	    resetGoals();
+	    updateGoals();
 
-	    var goals = doc.getElementsByClassName( "goal" );
 	    var goalsObj = localStorage.getItem('goals');
-	    var goalsJSON = goalsObj ? JSON.parse( goalsObj ) : false;
 
-	    var goalsData = goalsJSON || defaults;
 
 	    var editButton = document.getElementById('edit-goals');
 	    var saveButton = document.getElementById('set-goals');
 	    var skipButton = document.getElementById('skip-goals');
-
-	    Array.prototype.forEach.call( goals, function( goal ) {
-			var info = goal.getElementsByClassName( 'goal-info' )[0];
-			var name = goal.id.replace("goal-", "");
-			var target = goalsData ? goalsData[ name ] : 0;
-
-			updateTarget( goal, target );
-
-		});
 
 		editButton.addEventListener("click", function(e) {
 			showEditor();
@@ -44,12 +31,9 @@ var goals = (function(){
 			hideEditor();
 		});
 
-		if( !goalsJSON ) {
+		if( !goalsObj ) {
 			showEditor();
 		}
-
-	    // console.log( goals )
-
 	}
 
 	// in case the document is already rendered
@@ -74,21 +58,49 @@ var goals = (function(){
 	}
 
 	function saveGoals() {
+		var bookings = document.getElementById("bookings-goal").value;
+		var sales = document.getElementById("sales-goal").value;
+		var doors = bookings * 5;
+		var meetings = parseInt(sales) + 1;
 
+		var data = { 'doors': doors, 'bookings': bookings, 'meetings': meetings, 'sales': sales };
+
+		localStorage.setItem('goals', JSON.stringify(data));
+
+		updateGoals();
 	}
 
 	function resetGoals() {
 		localStorage.removeItem('goals');
 	}
 
-	function updateTarget( el, newTarget ) {
-		var target = el.getElementsByClassName('target')[0];
-		var dailyTarget = el.getElementsByTagName( 'mark' )[0];
-		var progress = el.getElementsByTagName( 'progress' )[0];
 
-		target.innerHTML = newTarget;
-		dailyTarget.innerHTML = Math.ceil( Number(newTarget) / 20 );
-		progress.max = newTarget;
+	function updateGoals() {
+		var defaults = { 'doors': 25, 'bookings': 5, 'meetings': 3, 'sales': 2 };
+	    var goals = doc.getElementsByClassName( "goal" );
+	    var goalsObj = localStorage.getItem('goals');
+	    var goalsJSON = goalsObj ? JSON.parse( goalsObj ) : false;
+
+	    var goalsData = goalsJSON || defaults;
+
+	    Array.prototype.forEach.call( goals, function( goal ) {
+			var info = goal.getElementsByClassName( 'goal-info' )[0];
+			var name = goal.id.replace("goal-", "");
+			var target = goalsData ? goalsData[ name ] : 0;
+
+			updateTarget( goal, target );
+
+		});
+	}
+
+	function updateTarget( el, newTarget ) {
+		// var target = el.getElementsByClassName('target')[0];
+		var dailyTarget = el.getElementsByTagName( 'mark' )[0];
+		// var progress = el.getElementsByTagName( 'progress' )[0];
+
+		// target.innerHTML = newTarget;
+		dailyTarget.innerHTML = newTarget;
+		// progress.max = newTarget;
 	}
 
 
