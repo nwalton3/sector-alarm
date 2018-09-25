@@ -94,3 +94,55 @@
 
 
 
+
+.set-goals
+	max-height: 0
+	position: absolute
+	width: 90%
+	top: 0
+	left: 5%
+	background: #fff
+	padding: 0 10% 0
+	overflow: hidden
+	transition: all 200ms ease
+	opacity: 0
+	top: -10rem
+
+	.show-set-goals &
+		top: 1rem
+		padding: 1rem 10% 3rem
+		max-height: 100rem
+		opacity: 1
+
+
+	fieldset
+		padding: 0
+
+	label
+		font-weight: 500
+		font-size: 1.1rem
+		width: 4.5rem
+		display: inline-block
+
+	input
+		width: 5rem
+
+#set-goals
+	margin-top: 1rem
+	padding: 0.5rem 2.5rem
+	width: auto
+
+#skip-goals
+
+
+
+.show-set-goals
+	&:before
+		content: " "
+		position: absolute
+		display: block
+		width: 100vw
+		height: 100vh
+		background: rgba(#000, 0.25)
+		top: 0
+		left: 0

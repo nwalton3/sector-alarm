@@ -8,19 +8,40 @@ var goals = (function(){
 	function init() {
 	    // do something
 
+	    resetGoals();
+
 	    var goals = doc.getElementsByClassName( "goal" );
 	    var goalsObj = localStorage.getItem('goals');
 	    var goalsJSON = goalsObj ? JSON.parse( goalsObj ) : false;
 
-	    Array.prototype.forEach.call( goals, function( goal ) {
-	    	var title = goal.getElementsByTagName( 'h2' )[0];
-			var info = goal.getElementsByClassName( 'goal-info' )[0];
-			var name = title.innerHTML.toLowerCase() + "";
-			var target = goalsJSON ? goalsJSON[ name ] : 0;
+	    var goalsData = goalsJSON || defaults;
 
-			addEditor( goal, name, target );
+	    var saveButton = document.getElementById('set-goals');
+	    var skipButton = document.getElementById('skip-goals');
+
+	    Array.prototype.forEach.call( goals, function( goal ) {
+			var info = goal.getElementsByClassName( 'goal-info' )[0];
+			var name = goal.id.replace("goal-", "");
+			var target = goalsData ? goalsData[ name ] : 0;
+
+			updateTarget( goal, target );
 
 		});
+
+		saveButton.addEventListener("click", function(e) {
+			e.preventDefault();
+			saveGoals();
+			hideEditor();
+		});
+
+		skipButton.addEventListener("click", function(e){
+			e.preventDefault();
+			hideEditor();
+		});
+
+		if( !goalsJSON ) {
+			showEditor();
+		}
 
 	    // console.log( goals )
 
@@ -39,11 +60,21 @@ var goals = (function(){
 
 
 
-	function addEditor( el, name, val ) {
-		
+	function showEditor() {
+		document.body.className = "show-set-goals";
+	}
+
+	function hideEditor() {
+		document.body.className = "";
+	}
+
+	function saveGoals() {
 
 	}
 
+	function resetGoals() {
+		localStorage.removeItem('goals');
+	}
 
 	function updateTarget( el, newTarget ) {
 		var target = el.getElementsByClassName('target')[0];
@@ -56,14 +87,6 @@ var goals = (function(){
 	}
 
 
-	function closeEditor( el ) {
-		el.className = "goal";
-	}
-
-
-	function openEditor( el ) {
-		el.className = "goal editor-open";
-	}
 
 
 	// var goals = { 'doors': 500, 'bookings': 100, 'meetings': 50, 'sales': 40 };

@@ -32,7 +32,7 @@
 
       <div class="goals">
 
-        <a class="goal editor-open" id="goal-doors">
+        <a class="goal" id="goal-doors">
           <h2>AK</h2>
           <div class="goal-info">
             <h3>Päivätavoite: <mark>25</mark></h3>
@@ -44,7 +44,7 @@
           </div>
         </a>
 
-        <a class="goal">
+        <a class="goal" id="goal-bookings">
           <h2>Bookit</h2>
           <div class="goal-info">
             <h3>Päivätavoite: <mark>5</mark></h3>
@@ -56,7 +56,7 @@
           </div>
         </a>
 
-        <a class="goal">
+        <a class="goal" id="goal-meetings">
           <h2>Tapaamiset</h2>
           <div class="goal-info">
             <h3>Päivätavoite: <mark>3</mark></h3>
@@ -68,7 +68,7 @@
           </div>
         </a>
 
-        <a class="goal">
+        <a class="goal" id="goal-sales">
           <h2>Myynnit</h2>
           <div class="goal-info">
             <h3>Päivätavoite: <mark>2</mark></h3>
@@ -89,18 +89,27 @@
 
     </section>
 
-<!--     <section class="team-goals">
-      <heading>
-        <h2>Team Goals</h2>
-      </heading>
-    </section>
 
-    <section class="statistics">
-      <heading>
-        <h2>Statistics</h2>
-      </heading> -->
+    <aside class="set-goals">
+      <form>
+        <h2>Set your goals for today:</h2>
+        <fieldset>
+          <label for="bookings-goal">Bookit</label>
+          <input type="number" id="bookings-goal" name="bookings-goal" value="5" />
+        </fieldset>
 
-    </section>
+        <fieldset>
+          <label for="sales-goal">Myynnit</label>
+          <input type="number" id="sales-goal" name="sales-goal" value="2" />
+        </fieldset>
+
+        <input id="set-goals" type="submit" value="Save" />
+        <input id="skip-goals" type="reset" value="Skip" />
+
+      </form>
+    </aside>
+
+
   </main>
 
   <script src="js/script.js"></script>
