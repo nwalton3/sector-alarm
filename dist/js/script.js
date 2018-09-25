@@ -2,7 +2,7 @@
 var goals = (function(){
 
 	var doc = document;
-
+	var defaults = { 'doors': 500, 'bookings': 100, 'meetings': 50, 'sales': 40 };
 
 	// Init
 	function init() {
@@ -40,29 +40,7 @@ var goals = (function(){
 
 
 	function addEditor( el, name, val ) {
-		var editor = `            <fieldset>
-              <label for="edit-goal-${name}">Kuukauden tavoite</label>
-              <input type="number" id="edit-goal-${name}" name="edit-goal-${name}" value=${val} />
-            </fieldset>
-            <input class="submit" type="submit" value="Save" >`;
-        var form = document.createElement('form');
-        form.className = "edit";
-        form.innerHTML = editor;
-
-        el.append( form );
-
-        var input = document.getElementById("edit-goal-" + name);
-        var goal = el;
-
-        input.addEventListener( "input", function(e){
-			var target = input.value;
-        	updateTarget( goal, target );
-        });
-
-        form.getElementsByClassName( "submit" )[0].addEventListener("click", function(e){
-        	e.preventDefault();
-        	closeEditor( goal );
-        });
+		
 
 	}
 
